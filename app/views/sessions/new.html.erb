@@ -1,0 +1,15 @@
+<h1>Sign In</h1>
+
+<%= form_with model: @user, url: '/session' do |f| %>
+    <div class="form-group">
+        <%= f.label :name, "Your name:" %>
+        <%= f.collection_select :name, User.all.order(:name), :id, :name,{ include_blank: true}, {class: "form-control", id: "user_name"} %>
+    </div>
+    <div class="form-group">
+        <%= f.label :password, "Your password:" %>
+        <%= f.password_field :password, {class: "form-control", id: "password"} %>
+    </div>
+    <div class="form-group">
+        <%= f.submit "Sign In"%>
+    </div>
+<% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root'sessions#home'
   get 'attractions/index'
   get 'attractions/new'
   get 'attractions/create'
@@ -6,8 +7,8 @@ Rails.application.routes.draw do
   get 'attractions/edit'
   get 'attractions/update'
   get 'attractions/destroy'
-  root'sessions#home'
-  get 'sessions/create'
+  get '/signin', to: 'sessions#new'
+  post '/session', to: 'sessions#create'
   get 'sessions/destroy'
   
   resources :users
