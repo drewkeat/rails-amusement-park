@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
-  root to: 'sessions/home'
+  get 'attractions/index'
+  get 'attractions/new'
+  get 'attractions/create'
+  get 'attractions/show'
+  get 'attractions/edit'
+  get 'attractions/update'
+  get 'attractions/destroy'
+  root'sessions#home'
   get 'sessions/create'
   get 'sessions/destroy'
   
-  get 'users/index'
-  get 'users/new'
-  get 'users/create'
-  get 'users/edit'
-  get 'users/update'
-  get 'users/destroy'
+  resources :users
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
