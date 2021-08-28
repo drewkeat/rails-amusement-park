@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'rides/create'
+  post '/rides', to: "rides#create"
   root'sessions#home'
 
   get '/signin', to: 'sessions#new'

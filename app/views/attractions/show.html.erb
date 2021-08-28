@@ -5,7 +5,11 @@
         <p>Name: <%= @attraction.name %></p>
         <p>Tickets: <%= @attraction.tickets %></p>
         <p>Height: <%= @attraction.min_height %></p>
-        <%= button_to "Go on this ride", user_path(@user) %>
+        <% if current_user.admin %>
+            <%= button_to "Edit Ride", edit_attraction_path(@attraction), method: :get %>
+        <% else %>
+            <%= button_to "Go on this ride", rides_path, params: {attraction_id: @attraction.id, user_id: current_user.id } %>
+        <% end %>
     </div>
 </div>
 

@@ -1,6 +1,7 @@
 class Ride < ActiveRecord::Base
     belongs_to :user
     belongs_to :attraction
+    before_save :take_ride
 
     def take_ride
         tall_enough, enough_tickets = self.approved?
@@ -19,13 +20,6 @@ class Ride < ActiveRecord::Base
             end
             return problems.join(" ")
         end
-
-        # Ride has a method 'take_ride' that accounts for the user not having enough tickets
-        # Ride has a method 'take_ride' that accounts for the user not being tall enough
-        # Ride has a method 'take_ride' that accounts for the user not being tall enough and not having enough tickets
-        # Ride has a method 'take_ride' that updates ticket number
-        # Ride has a method 'take_ride' that updates the user's nausea
-        # Ride has a method 'take_ride' that updates the user's happiness
     end
 
     def approved?

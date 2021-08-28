@@ -6,7 +6,13 @@ class ApplicationController < ActionController::Base
 
 private
   def determine_layout
-    current_user ? "users" : "application"
+    if logged_in && current_user.admin
+      "admin"
+    elsif logged_in
+      "users"
+    else
+      "application"
+    end
   end
   
   def current_user
