@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rides/create'
   root'sessions#home'
 
   get '/signin', to: 'sessions#new'
