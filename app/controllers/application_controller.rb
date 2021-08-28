@@ -2,15 +2,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
   before_action :check_logged_in
-  private
-  
-    def current_user
-      User.find_by(id: session[:user_id])
-    end
+  layout :determine_layout
 
-    def logged_in
-      !!current_user
-    end
+private
+  def determine_layout
+    current_user ? "users" : "application"
+  end
+  
+  def current_user
+    User.find_by(id: session[:user_id])
+  end
+
+  def logged_in
+    !!current_user
+  end
 
   def check_logged_in
     if !logged_in

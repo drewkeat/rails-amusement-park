@@ -1,2 +1,6 @@
-<h1>Attractions#index</h1>
-<p>Find me in app/views/attractions/index.html.erb</p>
+<h1>Choose a Ride!</h1>
+<% @attractions.each do |attraction| %>
+    <div>
+        <%= link_to "Go on #{attraction.name}", attraction_path(attraction) %>
+    </div>
+<% end %>

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   skip_before_action :check_logged_in, only: [:new, :create]
-  layout 'application', only: [:new]
   
   def index
   end

@@ -1,2 +1,11 @@
-<h1>Attractions#show</h1>
-<p>Find me in app/views/attractions/show.html.erb</p>
+<h1> <%= @attraction.name %> </h1>
+
+<div class="center">
+    <div class="info align-items-center">
+        <p>Name: <%= @attraction.name %></p>
+        <p>Tickets: <%= @attraction.tickets %></p>
+        <p>Height: <%= @attraction.min_height %></p>
+        <%= button_to "Go on this ride", user_path(@user) %>
+    </div>
+</div>
+
