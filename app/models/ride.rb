@@ -4,6 +4,9 @@ class Ride < ActiveRecord::Base
     before_save :take_ride
 
     def take_ride
+        if self.user.tickets.nil? || self.user.height.nil?
+            return "something is wrong"
+        end
         tall_enough, enough_tickets = self.approved?
         if tall_enough && enough_tickets
             self.user.tickets -= self.attraction.tickets
